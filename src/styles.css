@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 38% 97%;
+    --foreground: 222 32% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 32% 12%;
+    --primary: 154 54% 27%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 210 24% 92%;
+    --secondary-foreground: 222 24% 18%;
+    --muted: 210 24% 91%;
+    --muted-foreground: 217 12% 42%;
+    --accent: 198 64% 88%;
+    --accent-foreground: 198 54% 20%;
+    --destructive: 0 66% 44%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 214 22% 82%;
+    --input: 214 22% 78%;
+    --ring: 154 48% 35%;
+  }
+
+  .dark {
+    --background: 220 22% 9%;
+    --foreground: 210 30% 94%;
+    --card: 220 20% 13%;
+    --card-foreground: 210 30% 94%;
+    --primary: 154 45% 52%;
+    --primary-foreground: 220 22% 8%;
+    --secondary: 219 17% 19%;
+    --secondary-foreground: 210 26% 91%;
+    --muted: 219 17% 18%;
+    --muted-foreground: 214 14% 68%;
+    --accent: 199 28% 24%;
+    --accent-foreground: 199 45% 92%;
+    --destructive: 0 64% 48%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 219 16% 28%;
+    --input: 219 16% 31%;
+    --ring: 154 45% 58%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply min-h-screen bg-background text-foreground antialiased;
+    background:
+      linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--muted) / 0.48) 100%);
+    font-family:
+      Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    overscroll-behavior: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.18);
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    accent-color: hsl(var(--primary));
+  }
+
+  @supports (height: 100dvh) {
+    html,
+    body,
+    #root {
+      min-height: 100dvh;
+    }
+  }
+}
+
+@layer components {
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+
+  .table-grid {
+    @apply w-full border-separate border-spacing-0 text-sm;
+  }
+
+  .table-grid th {
+    @apply sticky top-0 z-10 border-b bg-muted/95 px-3 py-2.5 text-left text-xs font-semibold uppercase tracking-normal text-muted-foreground backdrop-blur;
+  }
+
+  .table-grid td {
+    @apply border-b px-3 py-2.5 align-top;
+  }
+
+  .table-grid tbody tr {
+    @apply transition-colors;
+  }
+
+  .table-grid tbody tr:nth-child(even) td {
+    background-color: hsl(var(--muted) / 0.16);
+  }
+
+  .table-grid tbody tr:hover td {
+    background-color: hsl(var(--accent) / 0.18);
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+
+  .app-shell {
+    background:
+      linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--muted) / 0.7) 100%);
+    padding:
+      env(safe-area-inset-top)
+      env(safe-area-inset-right)
+      env(safe-area-inset-bottom)
+      env(safe-area-inset-left);
+  }
+
+  .shell-sidebar {
+    background:
+      linear-gradient(180deg, hsl(var(--card)) 0%, hsl(var(--secondary) / 0.72) 100%);
+  }
+
+  .topbar {
+    background:
+      linear-gradient(180deg, hsl(var(--card) / 0.96) 0%, hsl(var(--background) / 0.92) 100%);
+  }
+
+  .brand-mark {
+    background:
+      linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent-foreground)) 100%);
+  }
+
+  .canvas-grid {
+    background-image:
+      linear-gradient(to right, hsl(var(--border) / 0.58) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.58) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  @media (pointer: coarse) {
+    button,
+    input,
+    select,
+    textarea {
+      min-height: 44px;
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+      min-height: auto;
+      height: 1.1rem;
+      width: 1.1rem;
+    }
+
+    .table-grid th,
+    .table-grid td {
+      @apply px-3 py-3;
+    }
+  }
+
+  @media (max-width: 1180px) {
+    .table-grid {
+      min-width: 760px;
+    }
+  }
+}

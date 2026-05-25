@@ -1,0 +1,37 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
+  "productName": "GrowOps Planner",
+  "version": "0.1.16",
+  "identifier": "com.growops.planner",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://127.0.0.1:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "GrowOps Planner",
+        "width": 1360,
+        "height": 860,
+        "minWidth": 1080,
+        "minHeight": 680,
+        "resizable": true,
+        "fullscreen": false
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; img-src 'self' asset: http://asset.localhost data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self'"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "icon": ["icons/icon.ico"],
+    "publisher": "GrowOps Planner",
+    "copyright": "Copyright GrowOps Planner contributors",
+    "shortDescription": "Offline crop planning and grow operations desktop app",
+    "longDescription": "GrowOps Planner is an offline-first desktop app for crop planning, growing spaces, tasks, harvest tracking, diagnostics, compatibility checks, and local backups."
+  }
+}

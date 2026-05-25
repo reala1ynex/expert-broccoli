@@ -1,0 +1,26 @@
+{
+  "name": "GrowOps Planner",
+  "short_name": "GrowOps",
+  "description": "Offline crop planning, grow management, diagnostics, and harvest tracking for iPad and desktop browsers.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f4f7fa",
+  "theme_color": "#216646",
+  "categories": ["productivity", "utilities", "business"],
+  "icons": [
+    {
+      "src": "./branding/growops-app-icon.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./branding/growops-app-icon-source.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
