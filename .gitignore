@@ -6,3 +6,29 @@ src-tauri/target/
 *.log
 .env
 .DS_Store
+
+# Local app data and user-generated files
+*.sqlite
+*.sqlite3
+*.db
+*.db-shm
+*.db-wal
+*.bak
+*.backup
+*.backup.json
+growops-backup*.json
+growops-export*.csv
+backups/
+exports/
+reports/
+photos/
+storage/
+app-data/
+
+# Packaged installer artifacts
+*.msi
+*.exe
+*.dmg
+*.AppImage
+*.deb
+*.rpm
